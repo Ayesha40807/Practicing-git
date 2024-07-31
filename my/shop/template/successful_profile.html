@@ -1,0 +1,118 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Successful Creations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF; /* White background color */
+            color: white; /* White text color */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px; /* Increased font size */
+            color: #ecf0f1; /* Light gray text color */
+            margin-bottom: 20px;
+        }
+
+        #profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #F9629F; /* Dark blue background color */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add margin between containers */
+        }
+
+        #success-message {
+            margin-bottom: 20px;
+        }
+
+        #medication-info {
+            background-color: #fff; /* White background color for medication info box */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            line-height: 1.5;
+            color: #333; /* Dark text color for better readability on white background */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #action-buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 15px;
+            background-color: #2ecc71; /* Blue button color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="profile-container">
+        <h1>User Profile - Successful Created</h1>
+
+        <!-- Successful login message -->
+        <div id="success-message">
+            <p>Successfully logged in!</p>
+        </div>
+
+        <!-- Medication Information -->
+        <div id="medication-info">
+            <p><strong>Medicine Name:</strong> <span id="medicine_name"></span></p>
+            <p><strong>Dosage Count:</strong> <span id="dosage_count"></span></p>
+            <p><strong>Date Taken:</strong> <span id="date_taken"></span></p>
+            <!-- You can add more information as needed -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div id="action-buttons">
+            <button onclick="addMedication()">Add Medications</button>
+            <button onclick="deleteMedication()">Delete</button>
+            <button onclick="saveChanges()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve medication information from local storage
+        var medicine_name = localStorage.getItem("medicine_name");
+        var dosage_count = localStorage.getItem("dosage_count");
+        var date_taken = localStorage.getItem("date_taken");
+
+        // Display medication information on the profile page
+        document.getElementById("medicine_name").innerText = medicine_name;
+        document.getElementById("dosage_count").innerText = dosage_count;
+        document.getElementById("date_taken").innerText = date_taken;
+
+        // Action button functions (You can customize these functions as needed)
+        function addMedication() {
+            alert("Functionality to add medications is not implemented yet.");
+        }
+
+        function deleteMedication() {
+            alert("Functionality to delete medications is not implemented yet.");
+        }
+
+        function saveChanges() {
+            alert("Functionality to save changes is not implemented yet.");
+        }
+    </script>
+
+</body>
+</html>

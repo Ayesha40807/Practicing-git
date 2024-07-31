@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% block title %}Patient Details - AI based Mediguard{% endblock %}
+{% block page_title %}Patient Details{% endblock %}
+{% block breadcrumb_active %}Patient Details{% endblock %}
+{% block main %}
+<div class="container">
+    <h2>Medicine Details</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Visit Date</th>
+                <th>Medicine Names</th>
+                <th>Morning</th>
+                <th>Afternoon</th>
+                <th>Evening</th>
+                <th>Before Eating</th>
+                <th>After Eating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine_detail in medicine_details %}
+            <tr>
+                <td>{{ medicine_detail.visit_date }}</td>
+                <td>
+                    <ul>
+                        {% for medicine_name in medicine_detail.medicine_names %}
+                        <li>{{ medicine_name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ medicine_detail.morning }}</td>
+                <td>{{ medicine_detail.afternoon }}</td>
+                <td>{{ medicine_detail.evening }}</td>
+                <td>{{ medicine_detail.before_eating }}</td>
+                <td>{{ medicine_detail.after_eating }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block title %}Add Patient- AI based Mediguard{% endblock %}
+{% block page_title %}Add Patient{% endblock %}
+{% block breadcrumb_active %}Add Patient{% endblock %}
+{% block main %}
+
+<h2>{{ patient.name }}'s Profile</h2>
+
+<h3>Basic Information:</h3>
+<p>Name: {{ patient.name }}</p>
+<p>Email: {{ patient.email }}</p>
+<p>Age: {{ patient.age }}</p>
+<!-- Add more fields as needed -->
+
+<h3>Medications:</h3>
+<ul>
+  {% for visit in visits %}
+    <li>
+      <strong>Date:</strong> {{ visit.visit_date }}<br>
+      <strong>Medicine Detail:</strong> {{ visit.medicines }}<br>
+      <strong>Timing:</strong>
+      {% if visit.morning %}Morning{% endif %}
+      {% if visit.afternoon %}Afternoon{% endif %}
+      {% if visit.evening %}Evening{% endif %}
+      {% if visit.before_eating %}Before Eating{% endif %}
+      {% if visit.after_eating %}After Eating{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

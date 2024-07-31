@@ -1,0 +1,37 @@
+body{
+    font-family: sans-serif;
+}
+.resized-image {
+    width: 200px; /* Set the desired width */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+
+}
+#productGrid{
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    gap:8px;
+}
+.product{
+    width: 140px;
+    height:140px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #F2F9F8;
+}
+.product img{
+    width: 140px;
+    height:140px;
+    padding: 8px;
+}
+#categories{
+    float:left;
+    margin-right: 20px;
+    height: 600px;
+}
+#categories ul{
+    padding: 0px;
+}
+#categories li{
+    list-style: none;
+    padding: 8px;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #bdf5b0; /* Corrected: added # before color code */
+            background-color: #f0fff0; /* Even lighter green shade for background */
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 150px; /* Adjust the height as needed */
+            resize: vertical; /* Allow vertical resizing */
+        }
+        button[type="submit"] {
+            background-color: #5aa75a;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #3d8a3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enquiry Form</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_name">Your Name:</label>
+            <input type="text" id="id_name" name="name" required> <!-- Corrected -->
+            <label for="id_email">Your Email:</label>
+            <input type="email" id="id_email" name="email" required> <!-- Corrected -->
+            <label for="id_message">Your Message:</label>
+            <textarea id="id_message" name="message" required></textarea> <!-- Corrected -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

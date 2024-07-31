@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Mediguard</title>
+        <style>
+          .js-up{
+            display: flex;
+            flex-direction: row;
+         
+            font-family: Arial, Helvetica, sans-serif;
+            
+
+          }
+          .photo{
+          display: flex;
+          flex: 1;
+          width: 100%;        
+          background-color: rgb(208, 239, 250);
+          }
+         img{
+          width: 100%;
+         }
+          .info{
+            display: flex;
+            flex: 1;
+         
+            
+          flex-direction: column;
+            
+          }
+          .start{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+           margin-bottom: 50px;
+           padding-top: 30px;
+           flex: 1;
+          }
+          .text-box{
+            padding: 10px 20px 10px 20px ;
+            width: 250px;
+            background-color: rgb(240, 240, 240);
+            border-radius: 5px;
+            margin-bottom: 20px;
+          
+           
+            border: none;
+          }
+          .name{
+            font-size: 18px;
+          
+          }
+          button{
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            padding:10px 40px 10px 40px;
+            border-radius: 8px;
+            border-style: solid;
+            border: none;
+            margin-top: 20px;
+           
+           }
+          button:hover{
+            opacity: 0.7;
+          }
+          .user-info{
+            display:flex;
+            flex-direction: column;
+            line-height: 20px;
+            flex: 1;
+            justify-content: center;
+            padding-left: 100px;
+      
+            
+          }
+          .signs{
+            text-decoration: none;
+            color: white;
+          }
+  </style>
+
+
+  </head>
+  <body >
+    <form action="{% url 'register' %}" method="post">
+      {% csrf_token %}
+    <div class="js-up">
+      <div class="photo"><img src="https://i.pinimg.com/736x/82/52/af/8252af25b2d369d139b62c9732999791.jpg"></div>
+      <div class="info">
+        <div class="start">
+          <div style="font-size: 40px;
+          font-weight: bolder;
+          margin-bottom: 20px;">Register</div>
+          <div> Register to start tracking your medication intake</div>
+        </div>
+        <div class="user-info">
+          <div class="name">User Type</div>
+          <div>
+            <select class="text-box" name="user_type" >
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+            </select>
+        </div>
+          <div class="name">First Name</div>
+          <div ><input class="text-box" type="text" name="first_name" placeholder="Enter Your First name" ></div>
+          
+          <div class="name">Last Name</div>
+          <div ><input class="text-box" type="text" name="last_name" placeholder="Enter Your Last name" ></div>
+  
+          <div class="name">Email</div>
+          <div ><input class="text-box" type="email" name="email" placeholder="Enter your email address" ></div>
+          <div class="name" >Username</div>
+          <div ><input class="text-box" type="text" name="username" placeholder="Username" ></div>
+          <div class="name">Create a password</div>
+          <div ><input class="text-box" type="password"  name="password1" placeholder="" ></div>
+          <div class="name">Confirm password</div>
+          <div ><input class="text-box" type="password" name="password2" placeholder="" ></div>
+          <div><input type="submit"></div>
+          <div>Already have an account? <a href="{% url 'login' %}">Log in</a></div>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+
+  <div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+  </div>
+  </body>
+</html>

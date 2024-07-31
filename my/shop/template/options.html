@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://t4.ftcdn.net/jpg/01/18/42/59/240_F_118425925_n2GZJR42P1ai0p3qYmNe375LCd6kQ9R4.jpg') center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(239, 226, 226, 0.847);
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .button {
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 20px;
+      margin: 160px;
+      background: rgba(248, 248, 248, 0.879);
+      border-radius: 10px;
+    }
+
+    .flex-item {
+      flex: 1;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .flex-item:hover {
+      transform: scale(1.05);
+    }
+
+    .flex-item img {
+      width: 150px; /* Increased image height */
+      height: 150px; /* Increased image height */
+      margin-bottom: 10px;
+    }
+
+    footer {
+      color: rgba(13, 4, 109, 1);
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <title>AI Based Mediguard</title>
+</head>
+<body>
+
+<div class="header">
+  <div></div>
+  <div class="button-container">
+    <a href="{% url 'logout' %}" class="button">Logout</a>
+    <a href="#" class="button">Contact Us</a>
+    <a href="#" class="button">Language</a>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="flex-item">
+    <img src="https://img.freepik.com/free-vector/illustration-paper-clipboard_53876-5861.jpg?t=st=1709754400~exp=1709758000~hmac=798dccb4d8abd91be46a560889a546bd713ceae882ceb2080e0702cf9e0b8201&w=740" alt="Trackers Logo">
+    <h3>Trackers</h3>
+  </div>
+  <div class="flex-item">
+    <img src="https://img.freepik.com/premium-vector/check-hand-drawn-icon-payment-planning_67813-5473.jpg?w=740" alt="Reminders Logo">
+    <h3>Reminders</h3>
+  </div>
+  <div class="flex-item">
+    <a href="{% url 'info' %}">
+    <img src="https://img.freepik.com/free-vector/drugs-bottle-medical-icon_24877-51510.jpg?t=st=1709754661~exp=1709758261~hmac=a7573e36fbf19087a0106569c19eb2ef6dc6aad6c4b1c9c3b5b6575027148c10&w=740" alt="Add Medication Logo" 
+    ></a>
+    <h3>Add Medication</h3>
+  </div>
+  <div class="flex-item">
+    <img src="https://www.shutterstock.com/shutterstock/photos/1183946620/display_1500/stock-vector-medical-history-icon-black-filled-vector-illustration-medical-history-symbol-on-white-background-1183946620.jpg" alt="Medication History Logo">
+    <h3>Medication History</h3>
+  </div>
+</div>
+
+<footer><span>&copy; 2024 AI Based Mediguard. All rights reserved.</span></footer>
+
+</body>
+</html>

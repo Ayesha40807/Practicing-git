@@ -1,0 +1,149 @@
+{%extends 'index.html' %}
+{% block title %}About Payment- AI based Mediguard{% endblock %}
+{% block page_title %}About Payment{% endblock %}
+{% block breadcrumb_active %}About Payment{% endblock %}
+{% block main %}
+
+			<div class="container">
+				<div class="row">
+						<div class="col-md-12">
+							<div class="widget-area-2 proclinic-box-shadow pb-3">
+								<!-- Invoice Head -->
+								<div class="row ">
+									<div class="col-sm-6 mb-5">
+                                        <img src="images/logo-dark.png" alt="logo hospital" class="img-thumbnail">
+                                        <br>    
+                                        <br>                                     
+										<span>Street Address</span>
+										<br>
+										<span>[City, ST ZIP Code]</span>
+										<br>
+										<span class="pr-2">Phone: +00 123456</span>
+										<span>Fax: 432 1231 3456</span>
+									</div>
+									<div class="col-sm-6 text-md-right mb-5">
+										<h3>INVOICE</h3>
+										<br>
+										<br>
+										<span>Invoice # [123]</span>
+										<br>
+										<span>Date: Nov 16, 2018</span>
+									</div>
+								</div>
+								<!-- /Invoice Head -->
+								<!-- Invoice Content -->
+								<div class="row">
+									<div class="col-sm-6 mb-5">
+										<h6 class="proclinic-text-color">PATIENT DETAILS:</h6>
+										<span><strong>Name:</strong> Daniel</span>
+										<br>
+										<span><strong>Age:</strong> 20</span>
+										<br>
+										<span><strong>Address: </strong>60-21/100, Smith street</span>
+										<br>
+										<span>Banglore, India</span>
+										<br>
+										<span><strong>Phone:</strong> +91 12345 67890</span>
+									</div>
+									<div class="col-sm-6 mb-5">
+										<span><strong>Patient ID:</strong> PI675</span>
+										<br>
+										<span><strong>Total Days:</strong> 10</span>
+										<br>
+										<span><strong>Payment Type:</strong> Credit Card</span>
+										<br>
+										<span>1234 5678 9012 3456</span>
+										<br>
+										<span>Paypal</span>
+									</div>
+									<div class="col-sm-12 mb-2">
+										<strong class="proclinic-text-color">Services:</strong>
+									</div>
+									<div class="col-sm-12">
+										<table class="table table-bordered table-striped table-invioce">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">Service</th>
+													<th scope="col">Unit Cost</th>
+													<th scope="col">Discount <small>(%)</small></th>
+													<th scope="col">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td>Chest X-ray</td>
+													<td>$ 120</td>
+													<td>10</td>
+													<td>$ 108</td>
+												</tr>
+												<tr>
+													<th scope="row">2</th>
+													<td>Injury Operation</td>
+													<td>$ 1000</td>
+													<td>20</td>
+													<td>$ 800</td>
+												</tr>
+		
+											</tbody>
+										</table>
+									</div>
+									<div class="col-sm-4 ml-auto">
+										<table class="table table-bordered table-striped">
+											<tbody>
+												<tr>
+													<td>Total</td>
+													<td>$ 1200</td>
+												</tr>
+												<tr>
+													<td>Tax</td>
+													<td>$ 50</td>
+												</tr>
+		
+												<tr>
+													<td>Discount</td>
+													<td>$ 212</td>
+												</tr>
+												<tr>
+													<td>
+														<strong>GRAND TOTAL</strong>
+													</td>
+													<td>
+														<strong>$ 1038</strong>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+		
+									<div class="col-sm-12">
+										<div class="border p-4">
+											<strong>Note:</strong>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur id illo incidunt, iste libero quisquam? A aut cumque
+											fuga fugit iusto libero officia optio quasi, quisquam saepe voluptate voluptatibus voluptatum.
+											<br>
+											<br>
+											<strong class="f12">Signature</strong>
+										</div>
+									</div>
+									<div class="col-sm-12">
+                                    <nav aria-label="Page navigation example">
+                                            <ul class="pagination justify-content-center export-pagination mt-3 mb-0">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="ti-printer"></span>  print</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
+                                                </li>
+                                            </ul>
+										</nav>
+									</div>
+                                </div>
+                                
+								<!-- /Invoice Content -->
+						</div>
+					</div>
+				</div>
+			</div>
+{%endblock%}

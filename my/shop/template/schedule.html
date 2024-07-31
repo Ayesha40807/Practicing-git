@@ -1,0 +1,116 @@
+{%extends 'index.html' %}
+{%load static%}
+{% block title %}Medication Schedule- AI based Mediguard{% endblock %}
+{% block page_title %}Medication Schedule{% endblock %}
+{% block breadcrumb_active %}Medication Schedule{% endblock %}
+{% block main %}
+
+<link rel="stylesheet" href="{% static 'css/schedule.css' %}">
+<div class="container reminder-container">
+<h2 style="text-align: center">Reminder App</h2>
+
+<label for="">Title : </label>
+<input type="text" id="title" />
+<label for="">Description :</label>
+<input type="text" id="description" />
+
+<label for="">Date :</label>
+<input type="date" id="date" />
+<label for="">Time : </label>
+<input type="time" id="time" />
+<button style="width: 100%" onclick="scheduleReminder();">
+Schedule Reminder
+</button>
+<table border="1">
+<thead>
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Date & Time</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="reminderTableBody"></tbody>
+</table>
+</div>
+{% load static %}
+
+<audio src="{% static 'audio/file_example_WAV_2MG.wav' %}" id="notificationSound"></audio>
+
+<script>
+// Ask user to allow notification access if not granted
+if ("Notification" in window && Notification.permission !== "granted") {
+    Notification.requestPermission().then(function (permission) {
+        if (permission !== "granted") {
+            alert("Please allow notification access!");
+        }
+    });
+}
+
+var timeoutIds = [];
+
+function scheduleReminder() {
+    var title = document.getElementById("title").value;
+    var description = document.getElementById("description").value;
+    var date = document.getElementById("date").value;
+    var time = document.getElementById("time").value;
+
+    var dateTimeString = date + " " + time;
+    var scheduledTime = new Date(dateTimeString);
+    var currentTime = new Date();
+    var timeDifference = scheduledTime - currentTime;
+
+    if (timeDifference > 0) {
+        addReminder(title, description, dateTimeString);
+
+        var timeoutId = setTimeout(function () {
+            playNotification();
+            var notification = new Notification(title, { 
+                body: description, 
+                requireInteraction: true 
+            });
+        }, timeDifference);
+        timeoutIds.push(timeoutId);
+    } else {
+        alert("The scheduled time is in the past!");
+    }
+}
+
+function playNotification() {
+    document.getElementById("notificationSound").play();
+    alert("Notification: Your reminder is ringing!");
+    // Continuously check if the audio is still playing
+    var audio = document.getElementById("notificationSound");
+    var interval = setInterval(function() {
+        if (audio.ended) {
+            clearInterval(interval);
+        } else {
+            alert("Notification: Your reminder is still ringing!");
+        }
+    }, 1000);
+}
+
+function addReminder(title, description, dateTimeString) {
+    var tableBody = document.getElementById("reminderTableBody");
+    var row = tableBody.insertRow();
+
+    var titleCell = row.insertCell(0);
+    var descriptionCell = row.insertCell(1);
+    var dateTimeCell = row.insertCell(2);
+    var actionCell = row.insertCell(3);
+
+    titleCell.innerHTML = title;
+    descriptionCell.innerHTML = description;
+    dateTimeCell.innerHTML = dateTimeString;
+    actionCell.innerHTML = '<button onclick="deleteReminder(this);">Delete</button>';
+}
+
+function deleteReminder(button) {
+    var row = button.closest("tr");
+    var index = row.rowIndex;
+    clearTimeout(timeoutIds[index - 1]);
+    timeoutIds.splice(index - 1, 1);
+    row.remove();
+}
+</script>
+{%endblock%}

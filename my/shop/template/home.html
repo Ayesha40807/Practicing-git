@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediConnect</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://t4.ftcdn.net/jpg/01/18/42/59/240_F_118425925_n2GZJR42P1ai0p3qYmNe375LCd6kQ9R4.jpg') center right fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      
+      color: rgba(13, 4, 109, 1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color:white;
+      color: black;
+      padding: 10px;
+      text-align: center;
+     
+    }
+   /* .nav-button{
+      border: black;
+      border-width: 1px;
+      border-style: solid;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: white;
+
+    }*/
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a:hover::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: black;
+    }
+
+   
+    
+    .sec-p1{
+    width: 633px;
+    color: rgba(13, 4, 109, 1);
+    position: absolute;
+    top: 250px;
+    left: 193px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+    }
+
+    .sec-p2{
+    width: 556px;
+    color: rgba(104, 116, 224, 1);
+    position: absolute;
+    top: 370px;
+    left: 193px;
+    font-family: Inter;
+    font-weight: Regular;
+    font-size: 24px;
+    opacity: 1;
+    text-align: left;
+}
+    
+
+    .search-container {
+      max-width: 800px;
+      position: absolute;
+      top: 480px;
+      left: 193px;
+      margin: 20px auto;
+      text-align: left;
+      width: 556px;
+      
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      padding: 10px;
+    }
+    footer{
+      color: rgba(13, 4, 109, 1);
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-button" href="register" onclick="toggleForm('registerForm')">Register</a>
+    <a href="{% url 'login' %}" onclick="toggleForm('loginForm')">Login</a>
+    <a href="{%url 'inquiry_page'%}">Enquiry</a>
+    <a href="#">Language</a>
+  </nav>
+
+<header>
+  <div>
+    <h1>AI Based MediConnect Clinic Management</h1>
+    <h4>Empowering you with medication information</h4>
+  </div>
+</header>
+
+
+
+<section >
+  <p class="sec-p1">Welcome to AI Based MediConnect Clinic Management 
+</p>
+  <p class="sec-p2">Explore over-the-counter medication information track your medication history get guidance in case of overdose. Start your journey to better health!</p>
+  
+</section>
+
+
+<div class="search-container">
+  <input type="text" placeholder="Search">
+  <button type="submit">Search</button>
+</div>
+
+
+<footer>
+  <p>&copy; 2024 Ai based MediConnect Clinic Management. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleForm(formId) {
+    const forms = document.querySelectorAll('.form-container');
+    forms.forEach(form => {
+      if (form.id === formId) {
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/882784d8-68ce-45bb-b26e-a452096bddd8/webchat/config.js" defer></script>
+</html>

@@ -1,0 +1,20 @@
+{%extends 'index.html' %}
+{%load static%}
+{% block title %}Create Reminder- AI based Mediguard{% endblock %}
+{% block page_title %}Create Reminder{% endblock %}
+{% block breadcrumb_active %}Create Reminder{% endblock %}
+{% block main %}
+    <h1>Create Reminder</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date"><br>
+        <label for="time">Time:</label><br>
+        <input type="time" id="time" name="time"><br>
+        <button type="submit">Create Reminder</button>
+    </form>
+{%endblock%}

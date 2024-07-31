@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+{% load html_formatters %}
+{% load static %}
+{%block main%}
+
+<div id="productGrid">
+    {% for p in product%}
+    <div class="product"> 
+    <img src="{% productimage p.image %}" alt="food photo" class="resized-image">
+    <a href="{% url 'product' p.id %} ">{{p.name}}</a>
+    <p> {{p.price|currency_euro}} </p>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

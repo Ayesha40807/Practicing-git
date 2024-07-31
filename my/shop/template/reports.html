@@ -1,0 +1,198 @@
+
+{%extends 'index_doctor.html' %}
+{% block title %}Add Patient- AI based Mediguard{% endblock %}
+{% block page_title %}Patient Count Report{% endblock %}
+{% block breadcrumb_active %}Patient Count Report{% endblock %}
+{% block main %}
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<div class="container">
+<div class="card">
+    <div class="card-header">Patient Count Reports</div>
+    <div class="card-body">
+        <!-- Chart selection form -->
+        <div class="row">
+            <!-- Chart type selection -->
+            <div class="col-4">
+                <form method="get" action="">
+                    <div class="d-flex justify-content-start">
+                        <div class="me-2">
+                            <select name="chart_type" class="mb-3 form-control select-chart-type">
+                                <option value="daily" {% if request.GET.chart_type and request.GET.chart_type == 'daily' %}selected {% endif %}>Daily</option>
+                                <option value="monthly" {% if request.GET.chart_type and request.GET.chart_type == 'monthly' %}selected {% endif %}>Monthly</option>
+                                <option value="yearly" {% if request.GET.chart_type and request.GET.chart_type == 'yearly' %}selected {% endif %}>Yearly</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-secondary">Change</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Additional filters for monthly chart -->
+            {% if request.GET.chart_type and request.GET.chart_type != 'yearly' %}
+            <div class="col-8">
+                <form action="">
+                    <input type="hidden" name="chart_type" value="{% if request.GET.chart_type %}{{ request.GET.chart_type}}  {% else %} daily {% endif %}"/>
+                    <div class="row">
+                        <div class="col-4">
+                            <!--Years-->
+                            <select name="year" class="mb-3 form-control">
+                                <option>--- Select Year ---</option>
+                                {% for year in years %}
+                                <option value="{{year.visit_date_year}}" {% if currentYear == year.visit_dateyear  %} selected {% endif %}>{{year.visit_date_year}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% if request.GET.chart_type and request.GET.chart_type == 'daily' %}
+                        <div class="col-4">
+                            <!--Months-->
+                            <select name="month" class="mb-3 form-control">
+                                <option>--- Select Month ---</option>
+                                {% for month in monthNames %}
+                                <option value="{{month.id}}"{% if currentMonth == month.id %} selected {% endif %}>{{month.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% endif %}
+                        <div class="col-4">
+                            <button class="btn btn-secondary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Chart display -->
+        <div class="col-12">
+            {% if not request.GET.chart_type or request.GET.chart_type == 'daily' %}
+            <div id="chartDaily"></div>
+            {% endif %}
+
+            {% if request.GET.chart_type and request.GET.chart_type == 'monthly' %}
+            <div id="chartMonthly"></div>
+            {% endif %}
+
+            {% if request.GET.chart_type and request.GET.chart_type == 'yearly' %}
+            <div id="chartYearly"></div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    // Daily Chart
+    var options = {
+        series: [{
+            name: "Patients",
+            data: {{ dailyChart.dailyChartValues | safe }}
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Daily Chart',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            },
+        },
+        xaxis: {
+            categories: {{ dailyChart.dailyChartLabels | safe }},
+        }
+    };
+
+    var chartDaily = new ApexCharts(document.querySelector("#chartDaily"), options);
+    chartDaily.render();
+
+    // Monthly Chart
+    var options2 = {
+        series: [{
+            name: "Patients",
+            data: {{ monthlyChart.monthlyChartValues | safe }}
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Monthly Chart',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            },
+        },
+        xaxis: {
+            categories: {{ monthlyChart.monthlyChartLabels | safe }},
+        }
+    };
+
+    var chartMonthly = new ApexCharts(document.querySelector("#chartMonthly"), options2);
+    chartMonthly.render();
+
+    // Yearly Chart
+    var options3 = {
+        series: [{
+            name: "Patients",
+            data: {{ yearlyChart.yearlyChartValues | safe }}
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Yearly Chart',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            },
+        },
+        xaxis:  {
+        categories: {{ yearlyChart.yearlyChartLabels | safe }},
+      }
+    
+  };
+
+  var chartYearly = new ApexCharts(document.querySelector("#chartYearly"), options3);
+  chartYearly.render();
+</script>
+</div>
+{% endblock %}

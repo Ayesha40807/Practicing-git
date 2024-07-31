@@ -1,0 +1,28 @@
+{% extends 'index_doctor.html' %}
+{% block title %}Quick_Statistics- AI based Mediguard{% endblock %}
+{% block page_title %}Quick_Statistics{% endblock %}
+{% block breadcrumb_active %}Quick_Statistics{% endblock %}
+{% block main %}
+<div class="container">
+<div class="row">
+    <div class="col-4">
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <h5>Total Patients</h5>
+          <hr />
+          <h4><a href="{% url 'all_patients' %}" class="text-decoration-none">{{totalPatients}}</a></h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <h5>Total Collection</h5>
+          <hr />
+          <h4><a href="{% url 'collection_reports' %}" class="text-decoration-none">Rs. {{totalCollection.total}}</a></h4>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+{%endblock%}

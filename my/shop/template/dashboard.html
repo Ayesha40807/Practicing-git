@@ -1,0 +1,9 @@
+<!-- patient/dashboard.html -->
+{%load static%}
+<h1>Welcome, {{patient.patient_name }}</h1>
+<p>Age: {{patient.age }}</p>
+<p>Gender: {{patient.gender }}</p>
+<p>Contact: {{ patient.contact }}</p>
+<a href="{% url 'medical_history' %}"><img src="{% static 'image/medical history.jpeg' %}" alt="Medical History" class="resized-image"></a>
+<a href="{% url 'visit_history' %}"><img src="{% static 'image/visit.jpeg' %}" alt="Visit History" class="resized-image"></a>
+<a href="{% url 'medicine_schedule' %}"><img src="{% static 'image/medicine_scheduling.jpg' %}" alt="Medicine Schedule" class="resized-image" ></a>

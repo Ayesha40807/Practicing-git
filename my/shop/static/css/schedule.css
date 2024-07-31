@@ -1,0 +1,49 @@
+.reminder-container {
+    max-width: 500px;
+    margin: auto;
+    background-color: #fff;
+    padding: 1px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-container label,
+.reminder-container input,
+.reminder-container button {
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.reminder-container input {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.reminder-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.reminder-container th,
+.reminder-container td {
+    padding: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.reminder-container th {
+    background-color: #4caf50;
+    color: white;
+}
+
+.reminder-container button {
+    background-color: #4caf50;
+    color: white;
+    padding: 5px;
+    border: none;
+}
+
+.reminder-container button:hover {
+    background-color: #45a049;
+}

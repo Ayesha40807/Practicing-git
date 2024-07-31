@@ -1,0 +1,146 @@
+{%extends 'index.html' %}
+{% block title %}Pricing- AI based Mediguard{% endblock %}
+{% block page_title %}Pricing{% endblock %}
+{% block breadcrumb_active %}Pricing{% endblock %}
+{% block main %}
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .plan {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .plan .card {
+            flex: 1;
+            margin: 0 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-body ul {
+            padding-left: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1 class="text-center mb-4 section-heading border-bottom pb-2">Plans</h1>
+        <div class="plans">
+            <div class="plan">
+                <div class="card">
+                    <div class="card-header">Basic Plan</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Medication Reminder</li>
+                            <li>Chatbot</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Standard Plan</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Medication Reminder</li>
+                            <li>Chatbot</li>
+                            <li>Medication Information Database</li>
+                            <li>Health Advisory</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Premium Plan</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Personalized Health Recommendation</li>
+                            <li>Medication Interaction Alerts</li>
+                            <li>Medication Reminder</li>
+                            <li>Chatbot</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="display-6 text-center mb-4">Compare Plans</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Basic</th>
+                    <th>Standard</th>
+                    <th>Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Medication Reminder</th>
+                    <td>✔</td>
+                    <td>✔</td>
+                    <td>✔</td>
+                </tr>
+                <tr>
+                    <th>Chatbot</th>
+                    <td>✔</td>
+                    <td>✔</td>
+                    <td>✔</td>
+                </tr>
+                <tr>
+                    <th>Medication Information Database</th>
+                    <td></td>
+                    <td>✔</td>
+                    <td>✔</td>
+                </tr>
+                <tr>
+                    <th>Health Advisory</th>
+                    <td></td>
+                    <td>✔</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Personalized Health Recommendation</th>
+                    <td></td>
+                    <td></td>
+                    <td>✔</td>
+                </tr>
+                <tr>
+                    <th>Medication Interaction Alerts</th>
+                    <td></td>
+                    <td></td>
+                    <td>✔</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+{%endblock%}
